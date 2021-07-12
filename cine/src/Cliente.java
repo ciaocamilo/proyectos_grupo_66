@@ -8,4 +8,12 @@ public class Cliente extends Persona implements Tiquete{
         return costoReal;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
 }

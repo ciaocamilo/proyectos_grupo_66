@@ -8,4 +8,12 @@ public class ClientePremium extends Persona implements Tiquete {
         return costoReal;
     }
 
+    public void setNumeroTarjeta(int numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
+    }
+
+    public int getNumeroTarjeta() {
+        return this.numeroTarjeta;
+    }
+
 }
