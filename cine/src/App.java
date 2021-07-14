@@ -37,8 +37,16 @@ public class App {
         float costoDos = clienteDos.calcularCosto(8000);
 
         System.out.println("Cédula: " + clienteDos.getCedula() + "\nNombre: "
-        + clienteDos.getNombre() + "\nNúmero tarjeta: " + clienteDos.getNumeroTarjeta()
-        + "\nCosto tiquete: " + costoDos);
+                            + clienteDos.getNombre() + "\nNúmero tarjeta: "
+                            + clienteDos.getNumeroTarjeta()
+                            + "\nCosto tiquete: " + costoDos);
+
+
+        // Prueba de contenedores
+        System.out.println();
+        Prueba pruebaContenedor = new Prueba();
+        pruebaContenedor.generarLista();
+
 
     }
 }
