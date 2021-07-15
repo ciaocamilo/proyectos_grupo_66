@@ -45,7 +45,8 @@ public class App {
         // Prueba de contenedores
         System.out.println();
         Prueba pruebaContenedor = new Prueba();
-        // pruebaContenedor.generarLista();
+        pruebaContenedor.generarLista();
+
 
         // Lista de objetos
         System.out.println("CREACIÓN DE CLIENTES");
@@ -78,5 +79,14 @@ public class App {
         pruebaContenedor.mostrarNombreClientes();
         pruebaContenedor.mostrarDatosClientes();
 
+
+        /*
+        ** Estructura Try - Catch
+        try {
+            // Algoritmo
+        } catch(Exception e){
+            // Proceso realizado si ocurre un eror
+        }
+        */
     }
 }
