@@ -45,8 +45,38 @@ public class App {
         // Prueba de contenedores
         System.out.println();
         Prueba pruebaContenedor = new Prueba();
-        pruebaContenedor.generarLista();
+        // pruebaContenedor.generarLista();
 
+        // Lista de objetos
+        System.out.println("CREACIÓN DE CLIENTES");
+        String opcion = "S";
+        while (opcion.equalsIgnoreCase("S")) { // Ignora mayúsculas
+            // Ingresa datos por teclado
+            System.out.println("Ingrese su cédula:");
+            cedula = sca.next(); // Uso de next
+            sca.nextLine();
+            System.out.println("Ingrese su nombre:");
+            nombre = sca.nextLine();
+            System.out.println("Ingrese su ID:");
+            int id = sca.nextInt();
+
+            // Crea objeto cliente
+            Cliente nuevoCliente = new Cliente();
+            nuevoCliente.setCedula(cedula);
+            nuevoCliente.setNombre(nombre);
+            nuevoCliente.setId(id);
+
+            // Agregar cliente a la lista
+            pruebaContenedor.agregarCliente(nuevoCliente);
+
+            // Preguntar nuevo cliente
+            System.out.println("Desea agregar otro cliente? (s / n):");
+            opcion = sca.next();
+            sca.nextLine();
+        }
+
+        pruebaContenedor.mostrarNombreClientes();
+        pruebaContenedor.mostrarDatosClientes();
 
     }
 }
