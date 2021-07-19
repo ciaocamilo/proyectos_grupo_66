@@ -1,0 +1,205 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "ERDDataModel",
+			"_id": "AAAAAAFLzntJC6EktCk=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Data Model",
+			"ownedElements": [
+				{
+					"_type": "ERDDiagram",
+					"_id": "AAAAAAFLzntJC6ElOqo=",
+					"_parent": {
+						"$ref": "AAAAAAFLzntJC6EktCk="
+					},
+					"name": "Main",
+					"defaultDiagram": true,
+					"ownedViews": [
+						{
+							"_type": "ERDEntityView",
+							"_id": "AAAAAAF6vwxpRXt/R7g=",
+							"_parent": {
+								"$ref": "AAAAAAFLzntJC6ElOqo="
+							},
+							"model": {
+								"$ref": "AAAAAAF6vwxpOXt9JQM="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAF6vwxpRnuAqus=",
+									"_parent": {
+										"$ref": "AAAAAAF6vwxpRXt/R7g="
+									},
+									"font": "Arial;13;1",
+									"left": 200,
+									"top": 109,
+									"width": 74.28271484375,
+									"height": 13,
+									"text": "Productos"
+								},
+								{
+									"_type": "ERDColumnCompartmentView",
+									"_id": "AAAAAAF6vwxpR3uBMvg=",
+									"_parent": {
+										"$ref": "AAAAAAF6vwxpRXt/R7g="
+									},
+									"model": {
+										"$ref": "AAAAAAF6vwxpOXt9JQM="
+									},
+									"font": "Arial;13;0",
+									"left": 200,
+									"top": 127,
+									"width": 74.28271484375,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 200,
+							"top": 104,
+							"width": 74.28271484375,
+							"height": 33,
+							"nameLabel": {
+								"$ref": "AAAAAAF6vwxpRnuAqus="
+							},
+							"columnCompartment": {
+								"$ref": "AAAAAAF6vwxpR3uBMvg="
+							}
+						},
+						{
+							"_type": "ERDEntityView",
+							"_id": "AAAAAAF6vw15UnuNvZ0=",
+							"_parent": {
+								"$ref": "AAAAAAFLzntJC6ElOqo="
+							},
+							"model": {
+								"$ref": "AAAAAAF6vw15UnuL7Us="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAF6vw15U3uO5KU=",
+									"_parent": {
+										"$ref": "AAAAAAF6vw15UnuNvZ0="
+									},
+									"font": "Arial;13;1",
+									"left": 128,
+									"top": 197,
+									"width": 60.57177734375,
+									"height": 13,
+									"text": "Clientes"
+								},
+								{
+									"_type": "ERDColumnCompartmentView",
+									"_id": "AAAAAAF6vw15U3uPS/g=",
+									"_parent": {
+										"$ref": "AAAAAAF6vw15UnuNvZ0="
+									},
+									"model": {
+										"$ref": "AAAAAAF6vw15UnuL7Us="
+									},
+									"font": "Arial;13;0",
+									"left": 128,
+									"top": 215,
+									"width": 60.57177734375,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 128,
+							"top": 192,
+							"width": 60.57177734375,
+							"height": 33,
+							"nameLabel": {
+								"$ref": "AAAAAAF6vw15U3uO5KU="
+							},
+							"columnCompartment": {
+								"$ref": "AAAAAAF6vw15U3uPS/g="
+							}
+						},
+						{
+							"_type": "ERDEntityView",
+							"_id": "AAAAAAF6vw2Zmnua61M=",
+							"_parent": {
+								"$ref": "AAAAAAFLzntJC6ElOqo="
+							},
+							"model": {
+								"$ref": "AAAAAAF6vw2ZmXuYPrI="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAF6vw2Zm3ub4sk=",
+									"_parent": {
+										"$ref": "AAAAAAF6vw2Zmnua61M="
+									},
+									"font": "Arial;13;1",
+									"left": 280,
+									"top": 205,
+									"width": 53.341796875,
+									"height": 13,
+									"text": "Ventas"
+								},
+								{
+									"_type": "ERDColumnCompartmentView",
+									"_id": "AAAAAAF6vw2Zm3uc5U0=",
+									"_parent": {
+										"$ref": "AAAAAAF6vw2Zmnua61M="
+									},
+									"model": {
+										"$ref": "AAAAAAF6vw2ZmXuYPrI="
+									},
+									"font": "Arial;13;0",
+									"left": 280,
+									"top": 223,
+									"width": 53.341796875,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 280,
+							"top": 200,
+							"width": 53.341796875,
+							"height": 33,
+							"nameLabel": {
+								"$ref": "AAAAAAF6vw2Zm3ub4sk="
+							},
+							"columnCompartment": {
+								"$ref": "AAAAAAF6vw2Zm3uc5U0="
+							}
+						}
+					]
+				},
+				{
+					"_type": "ERDEntity",
+					"_id": "AAAAAAF6vwxpOXt9JQM=",
+					"_parent": {
+						"$ref": "AAAAAAFLzntJC6EktCk="
+					},
+					"name": "Productos"
+				},
+				{
+					"_type": "ERDEntity",
+					"_id": "AAAAAAF6vw15UnuL7Us=",
+					"_parent": {
+						"$ref": "AAAAAAFLzntJC6EktCk="
+					},
+					"name": "Clientes"
+				},
+				{
+					"_type": "ERDEntity",
+					"_id": "AAAAAAF6vw2ZmXuYPrI=",
+					"_parent": {
+						"$ref": "AAAAAAFLzntJC6EktCk="
+					},
+					"name": "Ventas"
+				}
+			]
+		}
+	]
+}
