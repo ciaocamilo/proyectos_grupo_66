@@ -1,0 +1,28 @@
+/*
+    EJEMPLOS DE SENTENCIAS SQL
+*/
+
+/*Creación de tablas*/
+CREATE TABLE Clientes (
+    identificacion varchar(15) PRIMARY KEY,
+    nombres varchar(20),
+    apellidos varchar(20)
+);
+
+CREATE TABLE Marcas (
+	codigoMarca INTEGER,
+	nombre TEXT(10),
+	CONSTRAINT Marcas_PK PRIMARY KEY (codigoMarca)
+);
+
+/*INsertar registros*/
+INSERT INTO Clientes VALUES ("1110238", "Juan Pedro", "Perez Lopez");
+INSERT INTO Clientes VALUES ("1110655", "Maria", "Perez Lopez");
+
+/*Mostrar todos los registros*/
+SELECT nombres FROM Clientes;
+
+SELECT nombres, apellidos FROM Clientes;
+
+SELECT * FROM Clientes;
+
