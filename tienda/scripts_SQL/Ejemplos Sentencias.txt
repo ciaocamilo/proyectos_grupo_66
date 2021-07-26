@@ -15,14 +15,60 @@ CREATE TABLE Marcas (
 	CONSTRAINT Marcas_PK PRIMARY KEY (codigoMarca)
 );
 
-/*INsertar registros*/
+/*Insertar registros*/
 INSERT INTO Clientes VALUES ("1110238", "Juan Pedro", "Perez Lopez");
 INSERT INTO Clientes VALUES ("1110655", "Maria", "Perez Lopez");
 
 /*Mostrar todos los registros*/
 SELECT nombres FROM Clientes;
-
 SELECT nombres, apellidos FROM Clientes;
-
 SELECT * FROM Clientes;
+
+/*Modificar Tablas*/
+ALTER TABLE Clientes ADD edad int;
+ALTER TABLE Clientes DROP COLUMN edad;
+
+/*Eliminar tablas*/
+DROP TABLE Productos;
+TRUNCATE TABLE Productos;
+
+/*Crear tabla con llave foranea*/
+CREATE TABLE Productos (
+	codigoBarras INTEGER,
+	nombre TEXT(10),
+	precio REAL,
+	talla TEXT(4),
+	color TEXT(10),
+	idMarca INTEGER,
+	CONSTRAINT Productos_PK PRIMARY KEY (codigoBarras),
+	CONSTRAINT MarcaProducto_FK FOREIGN KEY (idMarca) REFERENCES Marcas(codigoMarca)
+);
+
+/*Insert masivos*/
+insert into Clientes (identificacion, nombres, apellidos) values ('1649129', 'Cissy', 'Ding');
+insert into Clientes (identificacion, nombres, apellidos) values ('1441413', 'Sharona', 'Jacobsson');
+insert into Clientes (identificacion, nombres, apellidos) values ('0824503', 'Elston', 'Rosenthal');
+insert into Clientes (identificacion, nombres, apellidos) values ('6761578', 'Kizzie', 'Marquot');
+insert into Clientes (identificacion, nombres, apellidos) values ('5456476', 'Deonne', 'MacCaughan');
+insert into Clientes (identificacion, nombres, apellidos) values ('0936013', 'Bradly', 'Townrow');
+insert into Clientes (identificacion, nombres, apellidos) values ('5506334', 'Lemmy', 'Pimmocke');
+insert into Clientes (identificacion, nombres, apellidos) values ('6118567', 'Dennet', 'Jirus');
+insert into Clientes (identificacion, nombres, apellidos) values ('4859976', 'Elvin', 'Keaveney');
+insert into Clientes (identificacion, nombres, apellidos) values ('7317164', 'Suzy', 'Ritchie');
+
+/*Select con Alias*/
+SELECT identificacion, nombres AS "Nombre de la persona" FROM Clientes;
+SELECT identificacion, nombres || " " || apellidos AS "Nombre completo" FROM Clientes;
+
+/*Select sin repetidos*/
+SELECT DISTINCT nombres FROM Clientes;
+
+/*Select con where*/
+SELECT * FROM Clientes WHERE identificacion = "1441413";
+SELECT * FROM Clientes WHERE nombres = "Maria";
+
+/*Select con LIKE*/
+SELECT * FROM Clientes WHERE nombres LIKE "%Maria%";
+
+
 
