@@ -15,6 +15,36 @@ CREATE TABLE Marcas (
 	CONSTRAINT Marcas_PK PRIMARY KEY (codigoMarca)
 );
 
+CREATE TABLE Ventas (
+	codigoVenta TEXT(5),
+	total REAL,
+	idCliente TEXT(15),
+	CONSTRAINT Ventas_PK PRIMARY KEY (codigoVenta),
+	CONSTRAINT Ventas_FK FOREIGN KEY (idCliente) REFERENCES Clientes(identificacion)
+);
+
+/*Crear tabla con llave foranea*/
+CREATE TABLE Productos (
+	codigoBarras INTEGER,
+	nombre TEXT(10),
+	precio REAL,
+	talla TEXT(4),
+	color TEXT(10),
+	idMarca INTEGER,
+	CONSTRAINT Productos_PK PRIMARY KEY (codigoBarras),
+	CONSTRAINT MarcaProducto_FK FOREIGN KEY (idMarca) REFERENCES Marcas(codigoMarca)
+);
+
+CREATE TABLE VentasProductos (
+	idVentasProductos INTEGER,
+	cantidad INTEGER,
+	idProducto INTEGER,
+	idVenta TEXT(5),
+	CONSTRAINT VentasProductos_PK PRIMARY KEY (idVentasProductos),
+	CONSTRAINT VentasProductos_FK FOREIGN KEY (idProducto) REFERENCES Productos(codigoBarras),
+	CONSTRAINT VentasProductos_FK_1 FOREIGN KEY (idVenta) REFERENCES Ventas(codigoVenta)
+);
+
 /*Insertar registros*/
 INSERT INTO Clientes VALUES ("1110238", "Juan Pedro", "Perez Lopez");
 INSERT INTO Clientes VALUES ("1110655", "Maria", "Perez Lopez");
@@ -31,18 +61,6 @@ ALTER TABLE Clientes DROP COLUMN edad;
 /*Eliminar tablas*/
 DROP TABLE Productos;
 TRUNCATE TABLE Productos;
-
-/*Crear tabla con llave foranea*/
-CREATE TABLE Productos (
-	codigoBarras INTEGER,
-	nombre TEXT(10),
-	precio REAL,
-	talla TEXT(4),
-	color TEXT(10),
-	idMarca INTEGER,
-	CONSTRAINT Productos_PK PRIMARY KEY (codigoBarras),
-	CONSTRAINT MarcaProducto_FK FOREIGN KEY (idMarca) REFERENCES Marcas(codigoMarca)
-);
 
 /*Insert masivos*/
 insert into Clientes (identificacion, nombres, apellidos) values ('1649129', 'Cissy', 'Ding');
@@ -66,6 +84,10 @@ SELECT DISTINCT nombres FROM Clientes;
 /*Select con where*/
 SELECT * FROM Clientes WHERE identificacion = "1441413";
 SELECT * FROM Clientes WHERE nombres = "Maria";
+
+SELECT codigoBarras, nombre, precio, talla, color, idMarca
+FROM Productos
+WHERE nombre = "Falda";
 
 /*Select con LIKE*/
 SELECT * FROM Clientes WHERE nombres LIKE "%Maria%";
