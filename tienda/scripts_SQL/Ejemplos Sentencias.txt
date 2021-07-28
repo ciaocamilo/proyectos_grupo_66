@@ -91,6 +91,25 @@ WHERE nombre = "Falda";
 
 /*Select con LIKE*/
 SELECT * FROM Clientes WHERE nombres LIKE "%Maria%";
+SELECT * FROM Clientes WHERE nombres LIKE "%Maria josé%";
 
+/*WHERE AND OR*/
+SELECT * FROM Clientes WHERE nombres LIKE "%Maria%" AND identificacion = "1110655";
+SELECT * FROM Clientes WHERE nombres LIKE "%Maria%" OR identificacion = "1110655";
 
+/*WHERE NOT*/
+SELECT * FROM Clientes WHERE nombres NOT LIKE "%Maria%";
 
+/*ORDER BY*/
+SELECT * FROM Clientes ORDER BY apellidos;
+SELECT * FROM Clientes ORDER BY apellidos DESC;
+SELECT * FROM Clientes ORDER BY apellidos ASC;
+SELECT * FROM Clientes ORDER BY apellidos, nombres;
+
+/*UPPER - LOWER*/
+SELECT * FROM Clientes WHERE LOWER(nombres) = LOWER("Maria josé");
+
+/*COUNT*/
+SELECT COUNT(*) FROM Clientes WHERE nombres LIKE ("%Maria%");
+SELECT COUNT(*) AS "NÚMERO DE MARIAS" FROM Clientes WHERE nombres LIKE ("%Maria%");
+SELECT COUNT(*) AS "NÚMERO DE CLIENTES" FROM Clientes;
