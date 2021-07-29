@@ -113,3 +113,43 @@ SELECT * FROM Clientes WHERE LOWER(nombres) = LOWER("Maria josé");
 SELECT COUNT(*) FROM Clientes WHERE nombres LIKE ("%Maria%");
 SELECT COUNT(*) AS "NÚMERO DE MARIAS" FROM Clientes WHERE nombres LIKE ("%Maria%");
 SELECT COUNT(*) AS "NÚMERO DE CLIENTES" FROM Clientes;
+
+/*Máximo y mínimo*/
+SELECT MAX(precio) AS "Precio", nombre, codigoBarras FROM Productos;
+SELECT MIN(precio) AS "Precio", nombre, codigoBarras FROM Productos;
+
+/*Suma*/
+SELECT SUM(total) FROM Ventas;
+SELECT SUM(total) FROM Ventas WHERE idCliente = "49898654";
+
+/*Suma y conteo con Where*/
+SELECT idCliente, COUNT(*) AS "Cantidad ventas", SUM(total) AS "Dinero gastado" FROM Ventas WHERE idCliente = "49898654";
+
+/*JOIN - Unión entre dos tablas*/
+SELECT idCliente, c.nombres || ' ' || c.apellidos AS "Nombre cliente", COUNT(*) AS "Cantidad ventas", SUM(total) AS "Dinero gastado"
+FROM Ventas v JOIN Clientes c ON v.idCliente = c.identificacion
+WHERE idCliente = "49898654";
+
+/*GROUP BY*/
+SELECT nombre, count(nombre) AS cantidad FROM Productos GROUP BY nombre;
+select count(*) from Productos;
+
+/*Group by conteo*/
+SELECT talla, count(talla) AS cantidad FROM Productos GROUP BY talla;
+SELECT color, count(color) AS cantidad FROM Productos GROUP BY color;
+
+/*Group by promedio*/
+SELECT nombre, AVG(precio) AS cantidad FROM Productos GROUP BY nombre;
+SELECT nombre, AVG(precio) AS cantidad FROM Productos GROUP BY nombre
+
+/**CAMISETA DE COLOR BLANCO -> PRODUCTOS CON PRECIO MAYOR**/
+/*Subconsulta*/
+SELECT precio FROM Productos  WHERE nombre = 'Camiseta' AND color = 'Blanco';
+
+/*Consulta y Sunconsulta*/
+SELECT nombre, precio
+FROM Productos
+WHERE precio > (
+				SELECT precio FROM Productos
+				WHERE nombre = 'Camiseta' AND color = 'Blanco'
+);
