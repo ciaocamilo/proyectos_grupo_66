@@ -153,3 +153,57 @@ WHERE precio > (
 				SELECT precio FROM Productos
 				WHERE nombre = 'Camiseta' AND color = 'Blanco'
 );
+
+/*Subconsulta GRoup by*/
+SELECT nombre, AVG(precio) AS "Precio promedio"
+FROM Productos
+WHERE precio > (
+				SELECT precio FROM Productos
+				WHERE nombre = 'Camiseta' AND color = 'Blanco'
+)
+GROUP BY nombre;
+
+/*Subconsulta*/
+SELECT AVG(precio) FROM Productos;
+/*Promedio del precio por producto por encima por encima del promedio general*/
+SELECT nombre, AVG(precio) AS "Precio promedio"
+FROM Productos
+GROUP BY nombre
+HAVING "Precio promedio" > (
+						SELECT AVG(precio) FROM Productos
+);
+
+/*UPDATE*/
+UPDATE Productos
+SET precio = 35000
+WHERE codigoBarras = 4535;
+
+/*DELETE*/
+DELETE FROM Clientes
+WHERE identificacion = "101010";
+
+/*Abel
+Wolfe*/
+/**/
+/*JOIN PARA LISTAR PRODUCTOS COMPRADOS POR EL CLIENTE*/
+SELECT c.nombres || " " || c.apellidos AS "Cliente", p.nombre, p.precio
+FROM Clientes c JOIN Ventas v ON c.identificacion = v.idCliente
+JOIN VentasProductos vp ON v.codigoVenta = vp.idVenta
+JOIN Productos p ON vp.idProducto = p.codigoBarras
+WHERE c.nombres = "Abel" AND c.apellidos = "Wolfe";
+
+/*JOIN PARA MOSTRAR EL PRODUCTO MÁS BARATO COMPRADO POR EL CLIENTE*/
+SELECT c.nombres || " " || c.apellidos AS "Cliente", p.nombre, MIN(p.precio) AS "Precio menor"
+FROM Clientes c JOIN Ventas v ON c.identificacion = v.idCliente
+JOIN VentasProductos vp ON v.codigoVenta = vp.idVenta
+JOIN Productos p ON vp.idProducto = p.codigoBarras
+WHERE c.nombres = "Abel" AND c.apellidos = "Wolfe";
+
+/*LEFT JOIN*/
+SELECT c.nombres || " " || c.apellidos AS "Nombre cliente", c.identificacion, v.codigoVenta
+FROM Clientes c LEFT JOIN Ventas v ON v.idCliente = c.identificacion;
+
+/*LEFT JOIN PARA CLIENTES QUE NUNCA HAN COMPRADO*/
+SELECT c.nombres || " " || c.apellidos AS "Nombre cliente", c.identificacion
+FROM Clientes c LEFT JOIN Ventas v ON v.idCliente = c.identificacion
+WHERE v.codigoVenta  IS NULL;
