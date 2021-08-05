@@ -48,4 +48,14 @@ public class SqliteConnection {
         return nFilas;
     }
 
+    public void cerrarConexion() {
+        if (conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+
 }
