@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -100,7 +104,10 @@ public class App {
             System.out.println(e.getMessage());
         };
 
-
+        //NIO 2
+        var miTexto = "Esto es una cadena de prueba";
+        Files.write(Paths.get("writeText.txt"), miTexto.getBytes(StandardCharsets.UTF_8),
+        StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 
     }
 }
