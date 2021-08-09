@@ -185,12 +185,19 @@ WHERE identificacion = "101010";
 /*Abel
 Wolfe*/
 /**/
-/*JOIN PARA LISTAR PRODUCTOS COMPRADOS POR EL CLIENTE*/
+/*JOIN PARA LISTAR PRODUCTOS COMPRADOS POR EL nombre CLIENTE*/
 SELECT c.nombres || " " || c.apellidos AS "Cliente", p.nombre, p.precio
 FROM Clientes c JOIN Ventas v ON c.identificacion = v.idCliente
 JOIN VentasProductos vp ON v.codigoVenta = vp.idVenta
 JOIN Productos p ON vp.idProducto = p.codigoBarras
 WHERE c.nombres = "Abel" AND c.apellidos = "Wolfe";
+
+/*JOIN PARA LISTAR PRODUCTOS COMPRADOS POR EL documento CLIENTE*/
+SELECT c.nombres || " " || c.apellidos AS "Cliente", p.nombre, p.precio
+FROM Clientes c JOIN Ventas v ON c.identificacion = v.idCliente
+JOIN VentasProductos vp ON v.codigoVenta = vp.idVenta
+JOIN Productos p ON vp.idProducto = p.codigoBarras
+WHERE c.identificacion = '43197785';
 
 /*JOIN PARA MOSTRAR EL PRODUCTO MÁS BARATO COMPRADO POR EL CLIENTE*/
 SELECT c.nombres || " " || c.apellidos AS "Cliente", p.nombre, MIN(p.precio) AS "Precio menor"
